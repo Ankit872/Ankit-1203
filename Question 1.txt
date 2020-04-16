@@ -1,4 +1,13 @@
-﻿Q.1 Create a database having two tables with the specified fields, to computerize a library system of a Delhi University College. 
+﻿ANkIT
+(20191203)
+DBMS.   PRACTICAL
+
+
+
+
+
+
+Q.1 Create a database having two tables with the specified fields, to computerize a library system of a Delhi University College. 
 LibraryBooks (Accession number, Title, Author, Department, PurchaseDate, Price) 10 
 IssuedBooks (Accession number, Borrower) 
 
