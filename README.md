@@ -37,5 +37,34 @@ On SQL and using all above forms like create table
 insert values, alter table and using types of
 nested queries that is independent and co related  
 we have retrieved things according to question 
+we make Use of 
+              different data types in the assignment  
+
+1 varchar : for string 
+
+2 int     : for integer 
+
+3 date.   : For dates 
+
+              Use of clauses 
+
+1 where clause 
+
+2 group by clause 
+
+3 having clause 
+
+              Use of logical operators like 
+
+1 AND
+
+2 OR
+
+3 BETWEEN
+
+4 EXIST
+
+5 IN 
+
 
 Submitted to : MR.VIPIN RATHI SIR
