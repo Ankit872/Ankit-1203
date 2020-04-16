@@ -77,16 +77,16 @@ ANS 4   create table Employee(
 
 
 
-  (a)   Primary keys 
-        Employee: Person_name
-        Works: Person_name
-        Company: Company_Name
-        Manages: Person_name
+  (a)   Primary keys of each table
+                  Employee: Person_name
+                  Works: Person_name
+                  Company: Company_Name
+                  Manages: Person_name
 
 
-        Foreign keys are 
-        Works: Person_name, Company_name
-        manages: Person_name
+        Foreign keys of each table
+                  Works: Person_name, Company_name
+                  manages: Person_name
 
 
   (b)   alter table employee
