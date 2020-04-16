@@ -38,6 +38,7 @@ insert values, alter table and using types of
 nested queries that is independent and co related  
 we have retrieved things according to question 
 we make Use of 
+              
               different data types in the assignment  
 
 1 varchar : for string 
