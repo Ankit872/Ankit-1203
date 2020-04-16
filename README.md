@@ -11,14 +11,17 @@ In DBMS we study outer languages which are of two types
 This assignment is based on one of the  non procedural 
 query language that is SQL and SQL focuses on WHAT To 
 RETRIEVE and and SQL is further based on 3 languages that are 
+
 1.DDL: DATA DEFINATION LANGUAGE (schema level modification)
             CREATE TABLE
             ALTER  TABLE
             DROP   TABLE
+
 2.DML: DATA MANIPULATION LANGUAGE (data level modification)
             INSERT INTO
             DELETE FROM
             UPDATE SET
+
 3.DLC: DATA CONTROL LANGUAGE 
 
 Hence, As this assignment has total 5 questions which is based 
