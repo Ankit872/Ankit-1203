@@ -1,8 +1,7 @@
 ﻿Q.1 Create a database having two tables with the specified fields, to computerize a library system of a Delhi University College. 
 LibraryBooks (Accession number, Title, Author, Department, PurchaseDate, Price) 10 
-
-
 IssuedBooks (Accession number, Borrower) 
+
 a) Identify primary and foreign keys. Create the tables and insert at least 5 records in each table. 
 b) Delete the record of book titled “Database System Concepts”. 
 c) Change the Department of the book titled “Discrete Maths” to “CS”. 
@@ -12,72 +11,69 @@ f) List all computer (Department = “CS”) that have been issued.
 g) List all books which have a price less than 500 or purchased between “01/01/1999” and “01/01/2004”. 
 
 
-ANSWER 1 
-create database db;
-use db;
+ANS 1  create database db;
+       use db;
+
+       create table LibraryBooks(
+       Accession_number int(10) primary key,
+       Title varchar(40) not null,
+       Author varchar(20) not null,
+       Department varchar(15) not null,
+       PurchaseDate date,Price int(10));
 
 
-create table LibraryBooks(
-Accession_number int(10) primary key,
-Title varchar(40) not null,
-Author varchar(20) not null,
-Department varchar(15) not null,
-PurchaseDate date,
-Price int(10));
+       create table IssuedBooks(
+       Accession_number int(10) not null,
+       Borrower varchar(30),
+       foreign key(Accession_number) references LibraryBooks(Accession_number));
 
 
-create table IssuedBooks(
-Accession_number int(10) not null,
-Borrower varchar(30),
-foreign key(Accession_number) references LibraryBooks(Accession_number));
+       (a) primary key-- Accession_number of LibraryBooks
+           foreign key-- Accession_number of IssuedBooks
 
-
-(a) Accession_number is the primary key for table LibraryBooks and it is the foreign key for table Issued books.
-
-
-insert into LibraryBooks(1027,"Database System Concepts","Ankit ","CS",'2015-02-26',450);
-insert into LibraryBooks(5468,"Discrete Maths","Mohit Sharma",Science",'2005-03-28',880);
-insert into LibraryBooks(8234,"Trigonometry","SL Loney","Mathematics",'2010-12-08',490)
-insert into LibraryBooks(8886,"Neural Networks","Navathe","CS",'2018-11-18',1150);
-insert into LibraryBooks(7796,"Panchatantra","Vishnu Sharma","Hindi",'2000-11-02',150);
-insert into LibraryBooks(5048,"Rich Dad Poor Dad","Robert T Kiyosaki","Finance",'2012-11-02',200);
-insert into LibraryBooks(8236,"Advanced Matrices",Navathe",Mathematics",'2002-11-20',2150);
-insert into LibraryBooks(2132,"Physics","HC Verma","CS",'2001-10-26',450);
-insert into LibraryBooks(1897,"Cloud Computing","Navathe","CS",'2011-12-01',2450);
-insert into LibraryBooks(1556,"Matrices","SC Gupta ","mathematics",'2010-12-10',350);
+           insert into LibraryBooks(4527,"Database System Concepts","Ankit ","CS",'2015-02-26',450);
+           insert into LibraryBooks(6468,"Discrete Maths","Rajesh kumar",Science",'2005-12-23',880);
+           insert into LibraryBooks(8234,"Trigonometry","SL Loney","Mathematics",'2010-12-08',490)
+           insert into LibraryBooks(9886,"Neural Networks","Navathe","CS",'2018-10-18',1150);
+           insert into LibraryBooks(7796,"Panchatantra","harshit Sharma","Hindi",'2000-11-02',150);
+           insert into LibraryBooks(5848,"fundamentals of mathematics","sultan chand","stats",'2012-11-02',200);
+           insert into LibraryBooks(1236,"Advanced Matrices",Navathe",Mathematics",'2002-11-20',2150);
+           insert into LibraryBooks(2132,"Physics","HC Verma","CS",'2001-10-26',450);
+           insert into LibraryBooks(1897,"Cloud Computing","Navathe","CS",'2011-12-01',2450);
+           insert into LibraryBooks(1356,"Matrices","SC Gupta ","mathematics",'2010-12-10',350);
 
 
 
 
-insert into IssuedBooks values(1234,”kishor ”);
-insert into IssuedBooks values(1556,”sonu Singh”);
-insert into IssuedBooks values(8856,”Ankit dalal”);
-insert into IssuedBooks values(5598,”Arpit ”);
-insert into IssuedBooks values(1897,”sourav kumar”);
+           insert into IssuedBooks values(8234,”rajesh ”);
+           insert into IssuedBooks values(1236,”sonu goel”);
+           insert into IssuedBooks values(7796,”Ankit dalal”);
+           insert into IssuedBooks values(5848,”arjun”);
+           insert into IssuedBooks values(1897,”sourav kumar”);
 
 
-(b)  
-set foreign_key_checks=Off;
-delete from issuedbooks where accession_number=21826.46;.        delete from librarybooks where title="Database System Concepts";.       set foreign_key_checks=on;
+      (b)  set foreign_key_checks=Off;
+           delete from issuedbooks where accession_number=21826.46;.      
+           delete from librarybooks where title="Database System Concepts";.      
+           set foreign_key_checks=on;
 
 
-(c)  update Librarybooks
-set Depatment="CS"
-where Title="Discrete Maths";
+      (c)  update Librarybooks
+           set Depatment="CS"
+           where Title="Discrete Maths";
 
 
-(d) select * from librarybooks
-where Department="CS";
+      (d)  select * from librarybooks
+           where Department="CS";
 
 
-(e) select * from librarybooks
-where Department="CS" and Author="Navathe";
+      (e)  select * from librarybooks
+           where Department="CS" and Author="Navathe";
 
 
-(f) 
-select * from LibraryBooks as L,IssuedBooks as I
-where L.Department="CS" and L.Accession_number=I.Accession_number;
+      (f)  select * from LibraryBooks as L,IssuedBooks as I
+           where L.Department="CS" and L.Accession_number=I.Accession_number;
 
 
-(g)  select * from Librarybooks 
-where price < 500 and purchasedate between '1999-01-01' and '2004-01-01';
+      (g)  select * from Librarybooks 
+           where price < 500 and purchasedate between '1999-01-01' and '2004-01-01';
