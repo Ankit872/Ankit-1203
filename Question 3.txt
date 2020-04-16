@@ -1,116 +1,107 @@
 ﻿Q.3  Create the following tables and answer the queries given below: 
 Customer (CustID, email, Name, Phone, ReferrerID) Bicycle (BicycleID, DatePurchased, Color, CustID, ModelNo) BicycleModel (ModelNo, Manufacturer, Style) Service (StartDate, BicycleID, EndDate)  
 a) Identify primary and foreign keys. Create the tables and insert at least 5 records in each table.
- b) List all the customers who have the bicycles manufactured by manufacturer “Honda”. 
+b) List all the customers who have the bicycles manufactured by manufacturer “Honda”. 
 c) List the bicycles purchased by the customers who have been referred by customer “C1”. 
 d) List the manufacturer of red colored bicycles. 
 e) List the models of the bicycles given for service. 
- 
-ANSWER 3
+  
+
+
+ANS 3   create table Customer(
+        CustID varchar(10) primary key,
+        email varchar(20) not null,
+        Name varchar(30) not null,
+        Phone varchar(10) not null,
+        ReferrerID varchar(10) not null);
+
+
+        create table Bicycle(
+        BicycleID varchar(10) primary key,
+        DatePurchased date,
+        Color varchar(20),
+        CustID varchar(10) not null,
+        ModelNo varchar(10),
+        foreign key(CustID) references Customer(CustID));
+
+
+        create table BicycleModel(
+        ModelNo varchar(10) primary key,
+        Manufacturer varchar(20) not null,
+        Style varchar(10) not null);
+
+
+        create table service(
+        BicycleID  varchar(10) primary key,
+        startdate date,
+        enddate date,
+        foreign key(BicycleID) references Bicycle(BicycleID));
+
+
+        alter table Bicycle
+        add constraint foreign key(ModelNo) references BicycleModel(ModelNO);
+
+
+   (a)  Primary keys of each table
+                    Customer: CustID
+                    Bicycle: BicycleID
+                    BicycleModel: ModelNo
+                    Service: BicycleID
+
+
+        Foreign keys of each table
+                     Bicycle: CustID, ModelNo
+                     Service: BicycleId
 
 
 
 
-
-
-create table Customer(
-CustID varchar(10) primary key,
-email varchar(20) not null,
-Name varchar(30) not null,
-Phone varchar(10) not null,
-ReferrerID varchar(10) not null);
-
-
-create table Bicycle(
-BicycleID varchar(10) primary key,
-DatePurchased date,
-Color varchar(20),
-CustID varchar(10) not null,
-ModelNo varchar(10),
-foreign key(CustID) references Customer(CustID));
-
-
-create table BicycleModel(
-ModelNo varchar(10) primary key,
-Manufacturer varchar(20) not null,
-Style varchar(10) not null);
-
-
-create table service(
-BicycleID  varchar(10) primary key,
-startdate date,
-enddate date,
-foreign key(BicycleID) references Bicycle(BicycleID));
-
-
-alter table Bicycle
-add constraint foreign key(ModelNo) references BicycleModel(ModelNO);
-
-
-(a)
-Primary keys 
-Customer: CustID
-Bicycle: BicycleID
-BicycleModel: ModelNo
-Service: BicycleID
-
-
-Foreign keys 
-Bicycle: CustID, ModelNo
-Service: BicycleId
+        Insert into customer values ('ANK123', 'ankit@gmail.com', Ankit', '8825394198', '256');
+        Insert into customer values ('SHY123', 'shyam@gmail.com', 'shyam', '9832015040', '256');
+        Insert into customer values ('RAM698', 'ram@gmail.com', 'Ram', '9321456856', '2368');
+        Insert into customer values ('SON999', 'sohan@gmail.com', 'sohan', '8965475695', '998');
+        Insert into customer values ('MOH699', 'mohan@gmail.com', 'mohan', '9654789569', '1456');
 
 
 
 
-Insert into  customer values ('ANK123', 'ankit@gmail.com', Ankit', '8825394198', '256');
-Insert into  customer values ('SAH564', 'sahil@gmail.com', 'Sahil', '9832015040', '256');
-Insert into customer values ('RAM698', 'ram@gmail.com', 'Ram', '9321456856', '2368');
-Insert into customer values ('SON999', 'sohan@gmail.com', 'sohan', '8965475695', '998');
-Insert into customer values ('PIY699', 'piyush@gmail.com', 'Piyush', '9654789569', '1456');
+        Insert into BicycleModel values ('9999', 'Hero', 'sprint');
+        Insert into BicycleModel values ('4444', 'Honda', 'Classic');
+        Insert into BicycleModel values ('6666', 'Suzuki', 'Access');
+        Insert into BicycleModel values ('2222', 'Honda', 'mountain');
+        Insert into BicycleModel values ('7676', 'Suzuki', 'Classic');
 
 
 
 
-Insert into BicycleModel values ('9969', 'Hero', 'sprint');
-Insert into BicycleModel values ('9586', 'Honda', 'Classic');
-Insert into BicycleModel values ('6144', 'Suzuki', 'Access');
-Insert into BicycleModel values ('2345', 'Honda', 'mountain');
-Insert into BicycleModel values ('7687', 'Suzuki', 'Classic');
+        Insert into Bicycle values ('78669', '2019-03-23', 'Red', ANK123', '9999');
+        Insert into Bicycle value  ('12345', '2020-01-29', 'Blue', 'SHY123', '4444');
+        Insert into Bicycle valued ('22222', '2018-02-15', 'White', 'RAM698', '6666');
+        Insert into Bicycle values ('23654', '2019-12-12', 'black', 'SON999', '2222');
+        Insert into Bicycle values  ('56743', '2015-03-26', 'Red', 'MOH699', '7676');
 
 
+        Insert into Service values ('78669', '2019-03-23', '2020-03-23');
+        Insert into Service values ('22222', '2015-03-26', '2016-03-26');
+        Insert into Service values ('23654', '2019-12-12', '2020-12-12');
+        Insert into Service values ('12345', '2018-02-15', '2019-02-15');
+        Insert into Service values ('56743', '2020-01-29', '2021-01-29');
 
 
-Insert into  Bicycle values ('78669', '2019-03-23', 'Red', 'RAN123', '9333');
-Insert into Bicycle value  ('12345', '2020-01-29', 'Blue', 'Ran123', '5234');
-Insert into Bicycle valued ('22222', '2018-02-15', 'White', 'Roh698', '2577');
-Insert into  Bicycle values ('23654', '2019-12-12', 'black', 'pra564', '8569');
-Insert into Bicycle values  ('56743', '2015-03-26', 'Red', 'MUJ699', '9966');
+   (b)  select * from customer where CustID in(select CustID from Bicycle
+        where ModelNo in(select ModelNo from BicycleModel where 
+        Manufacturer="Honda"));
 
 
-Insert into Service values ('78669', '2019-03-23', '2020-03-23');
-Insert into Service values ('22222', '2015-03-26', '2016-03-26');
-Insert into Service values ('23654', '2019-12-12', '2020-12-12');
-Insert into Service values ('12345', '2018-02-15', '2019-02-15');
-Insert into Service values ('56743', '2020-01-29', '2021-01-29');
+   (c)  select * from Bicycle where CustID in(
+        select CustID from Customer where 
+        ReferrerID="256");
 
 
-(b)  
-select * from customer where CustID in(select CustID from Bicycle
-where ModelNo in(select ModelNo from BicycleModel where 
-Manufacturer="Honda"));
+   (d)  select distinct(Manufacturer) from BicycleModel where
+        ModelNo in(select ModelNo from Bicycle 
+        where color="Red");
 
 
-(c)
-select * from Bicycle where CustID in(
-select CustID from Customer where 
-ReferrerID="256");
-
-
-(d) select distinct(Manufacturer) from BicycleModel where
-ModelNo in(select ModelNo from Bicycle 
-where color="Red");
-
-
-(e)
-select modelNo from Bicycle where BicycleID in(
-select bicycleID from Service);
+   (e)  select modelNo from Bicycle where BicycleID in(
+        select bicycleID from Service);
