@@ -7,6 +7,7 @@ ABOUT ASSIGNMENT:
 In DBMS we study outer languages which are of two types 
 1. Procedural query languages
 2. Non procedural query languages
+
 This assignment is based on one of the  non procedural 
 query language that is SQL and SQL focuses on WHAT To 
 RETRIEVE and and SQL is further based on 3 languages that are 
